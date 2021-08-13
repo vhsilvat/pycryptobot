@@ -107,7 +107,7 @@ class Strategy():
             return True
 
         # loss failsafe sell at trailing_stop_loss
-        if self.app.trailingStopLoss() != None and change_pcnt_high < self.app.trailingStopLoss() and (self.app.allowSellAtLoss() or margin > 0):
+        if self.app.trailingStopLoss() != None and change_pcnt_high < self.app.trailingStopLoss() and (self.app.allowSellAtLoss() or margin > 7.5 or margin < -10):
             log_text = '! Trailing Stop Loss Triggered (< ' + str(self.app.trailingStopLoss()) + '%)'
             Logger.warning(log_text)
             self.app.notifyTelegram(self.app.getMarket() + ' (' + self.app.printGranularity() + ') ' + log_text)
@@ -146,7 +146,7 @@ class Strategy():
 
     def isWaitTrigger(self, margin: float=0.0):
         # configuration specifies to not sell at a loss
-        if self.state.action == 'SELL' and not self.app.allowSellAtLoss() and margin <= 0:
+        if self.state.action == 'SELL' and not self.app.allowSellAtLoss() and margin <= 5 and margin > -10:
             log_text = '! Ignore Sell Signal (No Sell At Loss)'
             Logger.warning(log_text)
             return True

@@ -1,0 +1,29 @@
+{
+    "binance": {
+        "api_url": "https://api.binance.com",
+        "config": {
+            "base_currency": "ADA",
+            "quote_currency": "EUR",
+	    "live" : 0,
+	    "autorestart" : 1,
+	    "sellatloss" : 0,
+	    "sellatresistance": 0,
+	    "trailingstoploss" : -2.5,
+	    "disablebullonly" : 1,
+	    "disablebuynearhigh" : 0,
+	    "disablebuymacd" : 1,
+	    "disablebuyobv" : 0,
+	    "disablebuyelderray" : 0,
+	    "disablefailsafefibonaccilow" : 1,
+	    "disableprofitbankreversal" : 1,
+	    "disabletracker" : 1,
+	    "smartswitch" : 0
+        },
+        "api_key_file": "binance.key"
+    },
+    "telegram": {
+        "token": "",
+        "client_id": ""
+    }
+}
+
